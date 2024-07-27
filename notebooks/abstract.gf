@@ -1,73 +1,29 @@
 
 abstract MyGrammar = {
   cat
-    S;      -- Sentence
-    NP;     -- Noun Phrase
-    VP;     -- Verb Phrase
-    V;      -- Verb
-    Det;    -- Determiner
-    N;      -- Noun
-    Adj;    -- Adjective
-    Adv;    -- Adverb
+    S; NP; VP; V; Det; N; Adj; Adv; PP; AdjP; AdvP; Conj; P;
 
   fun
-    -- Sentence rules
-    PredVP : NP -> VP -> S;           -- Predicate Verb Phrase
-    the_det : Det;
-    a_det : Det;
-    an_det : Det;
-    The_det : Det;
-    A_det : Det;
-    average_adj : Adj;
-    simple_adj : Adj;
-    full_adj : Adj;
-    downward_adj : Adj;
-    steepest_adj : Adj;
-    wet_adj : Adj;
-    upward_adj : Adj;
-    negative_adj : Adj;
-    significant_adj : Adj;
-    positive_adj : Adj;
-    78,668.26_adj : Adj;
-    year_n : N;
-    years_n : N;
-    levels_n : N;
-    increase_n : N;
-    volume_n : N;
-    average_n : N;
-    trend_n : N;
-    allocation_n : N;
-    benchmark_n : N;
-    Acre_n : N;
-    water_n : N;
-    loss_n : N;
-    deficit_n : N;
-    %_n : N;
-    capacity_n : N;
-    slope_n : N;
-    users_n : N;
-    climate_n : N;
-    scenario_n : N;
-    region_n : N;
-    watershed_n : N;
-    simulation_n : N;
-    period_n : N;
-    storage_n : N;
-    moving_n : N;
-    peak_n : N;
-    volumes_n : N;
-    percentage_n : N;
-    release_n : N;
-    Millions_n : N;
-    projection_n : N;
-    moving_v : V;
-    shows_v : V;
-    follow_v : V;
-    show_v : V;
-    downstream_v : V;
-    set_v : V;
-    according_v : V;
-    using_v : V;
-    followed_v : V;
-    Additionally_adv : Adv;
+    PredVP : NP -> VP -> S;
+    MakeNP : Det -> N -> NP;
+    MakeNPAdj : Det -> Adj -> N -> NP;
+    MakeNPAdjAdj : Det -> Adj -> Adj -> N -> NP;
+    MakeNP_PP : Det -> N -> PP -> NP;
+    MakeNPAdj_PP : Det -> Adj -> N -> PP -> NP;
+    MakeNPAdjAdj_PP : Det -> Adj -> Adj -> N -> PP -> NP;
+    MakeVP : V -> VP;
+    MakeVP_NP : V -> NP -> VP;
+    MakeVP_PP : V -> PP -> VP;
+    MakeVP_NP_PP : V -> NP -> PP -> VP;
+    MakeVP_Adv : V -> AdvP -> VP;
+    MakeVP_NP_Adv : V -> NP -> AdvP -> VP;
+    MakeVP_PP_Adv : V -> PP -> AdvP -> VP;
+    MakeVP_NP_PP_Adv : V -> NP -> PP -> AdvP -> VP;
+    MakePP : P -> NP -> PP;
+    MakeAdjP : Adj -> AdjP;
+    MakeAdjP_PP : Adj -> PP -> AdjP;
+    MakeAdvP : Adv -> AdvP;
+    MakeAdvP_PP : Adv -> PP -> AdvP;
+    MakeConj : Conj -> NP -> NP -> NP;
+    MakeConjVP : Conj -> VP -> VP -> VP;
 }
